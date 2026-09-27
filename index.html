@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SAXO APP LTD — Software Development</title>
+
+  <meta
+    name="description"
+    content="SAXO APP LTD — Business and domestic software development. Building thoughtful, modern digital software experiences."
+  />
+
+  <meta name="theme-color" content="#e7ebf0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================================================
+       SAXO APP LTD
+       Neomorphic Landing Page
+       ========================================================= */
+
+    :root {
+      --bg: #e8edf2;
+      --surface: #e8edf2;
+
+      --text: #17202a;
+      --muted: #66727e;
+      --soft: #89949f;
+
+      --primary: #5b67f1;
+      --primary-dark: #4752d6;
+      --accent: #7c5cff;
+
+      --white: rgba(255, 255, 255, 0.75);
+
+      --shadow-light: -12px -12px 24px rgba(255, 255, 255, 0.92);
+      --shadow-dark: 12px 12px 24px rgba(163, 174, 185, 0.42);
+
+      --shadow-inset:
+        inset -5px -5px 10px rgba(255, 255, 255, 0.85),
+        inset 5px 5px 10px rgba(163, 174, 185, 0.35);
+
+      --radius-lg: 34px;
+      --radius-md: 24px;
+      --radius-sm: 16px;
+
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255,255,255,.85),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(124,92,255,.08),
+          transparent 25%
+        ),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       NEUMORPHISM UTILITIES
+       ========================================================= */
+
+    .neo {
+      background: var(--surface);
+      box-shadow: var(--shadow-light), var(--shadow-dark);
+      border: 1px solid rgba(255,255,255,.35);
+    }
+
+    .neo-inset {
+      background: var(--surface);
+      box-shadow: var(--shadow-inset);
+    }
+
+    .neo-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      border: 0;
+      cursor: pointer;
+
+      padding: 15px 23px;
+      border-radius: 17px;
+
+      background: var(--surface);
+      color: var(--text);
+
+      font: inherit;
+      font-weight: 700;
+
+      box-shadow: -6px -6px 12px rgba(255,255,255,.9),
+                  6px 6px 12px rgba(163,174,185,.4);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .neo-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .neo-button:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-inset);
+    }
+
+    .neo-button.primary {
+      color: white;
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+      );
+
+      box-shadow:
+        -5px -5px 12px rgba(255,255,255,.65),
+        7px 7px 15px rgba(103,92,190,.35);
+    }
+
+    .neo-button.primary:hover {
+      box-shadow:
+        -6px -6px 14px rgba(255,255,255,.7),
+        9px 9px 18px rgba(103,92,190,.4);
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      padding: 18px 0;
+
+      background: rgba(232,237,242,.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,.4);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: linear-gradient(
+        145deg,
+        #6c77ff,
+        #514edb
+      );
+
+      color: white;
+
+      box-shadow:
+        -5px -5px 10px rgba(255,255,255,.8),
+        6px 6px 13px rgba(146,153,180,.45);
+    }
+
+    .brand-mark span {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .brand-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      letter-spacing: -.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .nav-links a {
+      padding: 11px 16px;
+      border-radius: 13px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,.35);
+      box-shadow: var(--shadow-inset);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      position: relative;
+      padding: 100px 0 110px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 9px 14px;
+      border-radius: 999px;
+
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+
+      box-shadow: var(--shadow-inset);
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #5cd69b;
+      box-shadow: 0 0 0 4px rgba(92,214,155,.12);
+    }
+
+    h1 {
+      margin-top: 27px;
+
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: .99;
+      letter-spacing: -4px;
+      max-width: 760px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        120deg,
+        var(--primary),
+        var(--accent)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin-top: 27px;
+
+      max-width: 620px;
+
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 34px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 34px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 13px;
+      font-size: 12px;
+      color: var(--muted);
+      box-shadow: var(--shadow-inset);
+    }
+
+    /* Hero visual */
+
+    .hero-visual {
+      position: relative;
+      min-height: 490px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 32% 25%,
+          rgba(255,255,255,.95),
+          transparent 26%
+        ),
+        linear-gradient(
+          135deg,
+          #dfe4ec,
+          #e9edf3
+        );
+
+      box-shadow:
+        -22px -22px 45px rgba(255,255,255,.95),
+        22px 22px 45px rgba(160,171,184,.45);
+    }
+
+    .code-card {
+      position: relative;
+      z-index: 2;
+
+      width: min(390px, 100%);
+      padding: 25px;
+
+      border-radius: 30px;
+
+      background: rgba(232,237,242,.82);
+      backdrop-filter: blur(15px);
+
+      box-shadow:
+        -15px -15px 30px rgba(255,255,255,.9),
+        15px 15px 30px rgba(156,168,182,.4);
+    }
+
+    .window-top {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 23px;
+    }
+
+    .window-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      box-shadow: var(--shadow-inset);
+    }
+
+    .window-dot:nth-child(1) { background: #ff7777; }
+    .window-dot:nth-child(2) { background: #ffc65c; }
+    .window-dot:nth-child(3) { background: #62d69a; }
+
+    .code-line {
+      display: flex;
+      gap: 12px;
+      margin: 11px 0;
+
+      font-family: monospace;
+      font-size: 13px;
+      color: #6f7883;
+    }
+
+    .code-number {
+      color: #9ba4ad;
+      min-width: 18px;
+      text-align: right;
+    }
+
+    .code-purple { color: #7163df; }
+    .code-blue { color: #5276cf; }
+    .code-green { color: #4b9b76; }
+    .code-gray { color: #8c96a0; }
+
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 14px 17px;
+      border-radius: 18px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      box-shadow:
+        -8px -8px 17px rgba(255,255,255,.9),
+        8px 8px 17px rgba(158,170,183,.42);
+
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .floating-card.one {
+      top: 58px;
+      right: 3px;
+    }
+
+    .floating-card.two {
+      bottom: 55px;
+      left: -12px;
+      animation-delay: -2s;
+    }
+
+    .float-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(
+        145deg,
+        #6f79ff,
+        #554ee0
+      );
+
+      color: white;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* =========================================================
+       SECTION COMMON
+       ========================================================= */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      max-width: 690px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    h2 {
+      margin-top: 13px;
+
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
+    }
+
+    .section-heading p {
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* =========================================================
+       SERVICES
+       ========================================================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 31px;
+      border-radius: var(--radius-md);
+      min-height: 255px;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 18px;
+
+      color: var(--primary);
+      font-size: 23px;
+      font-weight: 800;
+
+      box-shadow: var(--shadow-inset);
+    }
+
+    .service-card h3 {
+      margin-top: 25px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 21px;
+    }
+
+    .service-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       APPROACH
+       ========================================================= */
+
+    .approach {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .approach-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .process {
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: center;
+
+      padding: 20px;
+      border-radius: 21px;
+    }
+
+    .process-number {
+      width: 55px;
+      height: 55px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 17px;
+
+      color: var(--primary);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+
+      box-shadow: var(--shadow-inset);
+    }
+
+    .process-item h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+    }
+
+    .process-item p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       COMPANY FACTS
+       ========================================================= */
+
+    .facts-wrapper {
+      padding: 38px;
+      border-radius: var(--radius-lg);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .fact {
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-inset);
+    }
+
+    .fact-label {
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+    }
+
+    .fact-value {
+      margin-top: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+
+      padding: 75px 60px;
+      border-radius: 38px;
+
+      text-align: center;
+    }
+
+    .cta-box::before,
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-box::before {
+      width: 240px;
+      height: 240px;
+      left: -100px;
+      top: -120px;
+      background: rgba(91,103,241,.08);
+    }
+
+    .cta-box::after {
+      width: 300px;
+      height: 300px;
+      right: -140px;
+      bottom: -170px;
+      background: rgba(124,92,255,.08);
+    }
+
+    .cta-box h2 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box p {
+      position: relative;
+      z-index: 1;
+
+      max-width: 610px;
+      margin: 19px auto 30px;
+
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .cta-box .neo-button {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 50px 0 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(148,158,169,.2);
+    }
+
+    .footer-brand p {
+      max-width: 350px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-info {
+      text-align: right;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .copyright {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 25px;
+
+      color: var(--soft);
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .approach {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      header {
+        padding: 13px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 65px 0 70px;
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2.8px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 370px;
+      }
+
+      .orb {
+        width: 270px;
+        height: 270px;
+      }
+
+      .code-card {
+        width: 330px;
+        padding: 20px;
+      }
+
+      .floating-card.one {
+        right: -3px;
+        top: 25px;
+      }
+
+      .floating-card.two {
+        left: -3px;
+        bottom: 20px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts-wrapper {
+        padding: 22px;
+      }
+
+      .cta-box {
+        padding: 55px 23px;
+        border-radius: 28px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .footer-info {
+        text-align: left;
+      }
+
+      .copyright {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#" class="brand" aria-label="SAXO APP LTD home">
+        <div class="brand-mark">
+          <span>SA</span>
+        </div>
+
+        <div class="brand-name">
+          SAXO APP LTD
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Capabilities</a>
+        <a href="#approach">Approach</a>
+        <a href="#company">Company</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="neo-button mobile-menu">
+        Let's talk
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Software Development
+          </div>
+
+          <h1>
+            Software built
+            <span class="gradient-text">with purpose.</span>
+          </h1>
+
+          <p class="hero-copy">
+            SAXO APP LTD develops thoughtful digital software for
+            business and domestic environments — combining practical
+            technology with clean, modern experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#services" class="neo-button primary">
+              Explore capabilities
+              <span>→</span>
+            </a>
+
+            <a href="#company" class="neo-button">
+              About the company
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="meta-pill">
+              UK Registered Company
+            </span>
+
+            <span class="meta-pill">
+              Glasgow, Scotland
+            </span>
+
+            <span class="meta-pill">
+              SIC 62012
+            </span>
+          </div>
+
+        </div>
+
+
+        <!-- Decorative software visual -->
+
+        <div class="hero-visual">
+
+          <div class="orb"></div>
+
+          <div class="floating-card one">
+            <div class="float-icon">✦</div>
+            <span>Digital solutions</span>
+          </div>
+
+          <div class="floating-card two">
+            <div class="float-icon">⌘</div>
+            <span>Software development</span>
+          </div>
+
+          <div class="code-card">
+
+            <div class="window-top">
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+            </div>
+
+            <div class="code-line">
+              <span class="code-number">01</span>
+              <span>
+                <span class="code-purple">const</span>
+                <span class="code-blue"> idea</span>
+                =
+                <span class="code-green">"possibility"</span>
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="code-number">02</span>
+              <span>
+                <span class="code-purple">function</span>
+                <span class="code-blue"> build</span>()
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="code-number">03</span>
+              <span>
+                &nbsp;&nbsp;
+                <span class="code-purple">return</span>
+                <span class="code-gray"> experience</span>
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="code-number">04</span>
+              <span>
+                }
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="code-number">05</span>
+              <span>
+                <span class="code-purple">build</span>();
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+         ===================================================== -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Capabilities</span>
+
+          <h2>
+            Technology designed around real needs.
+          </h2>
+
+          <p>
+            Our focus is software development — creating digital
+            products and solutions that are clear, purposeful and
+            designed to work in the real world.
+          </p>
+        </div>
+
+
+        <div class="services-grid">
+
+          <article class="service-card neo">
+
+            <div class="service-icon">
+              &lt;/&gt;
+            </div>
+
+            <h3>Software Development</h3>
+
+            <p>
+              Building tailored software experiences with a focus on
+              reliability, maintainability and practical usability.
+            </p>
+
+          </article>
+
+
+          <article class="service-card neo">
+
+            <div class="service-icon">
+              ◇
+            </div>
+
+            <h3>Digital Products</h3>
+
+            <p>
+              Turning ideas and requirements into structured digital
+              products that provide clear value to their users.
+            </p>
+
+          </article>
+
+
+          <article class="service-card neo">
+
+            <div class="service-icon">
+              ↗
+            </div>
+
+            <h3>Modern Experiences</h3>
+
+            <p>
+              Creating intuitive interfaces and digital experiences
+              where thoughtful design meets useful technology.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         APPROACH
+         ===================================================== -->
+
+    <section id="approach">
+
+      <div class="container approach">
+
+        <div class="approach-copy">
+
+          <span class="section-label">Our approach</span>
+
+          <h2>
+            From concept to working software.
+          </h2>
+
+          <p>
+            Good software starts with understanding the problem.
+            Our approach keeps the process focused, structured and
+            centred around creating useful digital outcomes.
+          </p>
+
+          <a href="#contact" class="neo-button" style="margin-top:28px;">
+            Start a conversation →
+          </a>
+
+        </div>
+
+
+        <div class="process">
+
+          <div class="process-item neo">
+
+            <div class="process-number">
+              01
+            </div>
+
+            <div>
+              <h3>Understand</h3>
+              <p>
+                Define the objective, requirements and people the
+                software is intended to serve.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="process-item neo">
+
+            <div class="process-number">
+              02
+            </div>
+
+            <div>
+              <h3>Design</h3>
+              <p>
+                Shape the experience, structure and functionality
+                into a clear digital solution.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="process-item neo">
+
+            <div class="process-number">
+              03
+            </div>
+
+            <div>
+              <h3>Develop</h3>
+              <p>
+                Turn the solution into dependable software with
+                maintainability and usability in mind.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="process-item neo">
+
+            <div class="process-number">
+              04
+            </div>
+
+            <div>
+              <h3>Refine</h3>
+              <p>
+                Iterate on the product and continuously improve
+                the digital experience.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COMPANY
+         ===================================================== -->
+
+    <section id="company">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            Company
+          </span>
+
+          <h2>
+            SAXO APP LTD
+          </h2>
+
+          <p>
+            A UK private limited company focused on business and
+            domestic software development.
+          </p>
+
+        </div>
+
+
+        <div class="facts-wrapper neo">
+
+          <div class="facts-grid">
+
+            <div class="fact">
+              <div class="fact-label">
+                Company number
+              </div>
+
+              <div class="fact-value">
+                SC874216
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                Company status
+              </div>
+
+              <div class="fact-value">
+                Active
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                Company type
+              </div>
+
+              <div class="fact-value">
+                Private limited Company
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                Incorporated
+              </div>
+
+              <div class="fact-value">
+                6 January 2026
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                Business activity
+              </div>
+
+              <div class="fact-value">
+                SIC 62012 — Business and domestic software development
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                Registered office
+              </div>
+
+              <div class="fact-value">
+                Clyde Offices, 2nd Floor,<br>
+                48 West George Street,<br>
+                Glasgow, Scotland, G2 1BP
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                First accounts
+              </div>
+
+              <div class="fact-value">
+                Made up to 31 January 2027
+              </div>
+            </div>
+
+
+            <div class="fact">
+              <div class="fact-label">
+                First statement
+              </div>
+
+              <div class="fact-value">
+                5 January 2027
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="cta-box neo">
+
+          <span class="section-label">
+            Let's build
+          </span>
+
+          <h2>
+            Have a software idea?
+          </h2>
+
+          <p>
+            Whether you're shaping a new digital product or looking
+            to develop software for a practical business or domestic
+            need, SAXO APP LTD is focused on building useful digital
+            solutions.
+          </p>
+
+          <a
+            href="mailto:hello@saxoapp.com"
+            class="neo-button primary"
+          >
+            Get in touch
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+
+          <a href="#" class="brand">
+
+            <div class="brand-mark">
+              <span>SA</span>
+            </div>
+
+            <div class="brand-name">
+              SAXO APP LTD
+            </div>
+
+          </a>
+
+          <p>
+            Software development for business and domestic
+            environments.
+          </p>
+
+        </div>
+
+
+        <div class="footer-info">
+          <strong>SAXO APP LTD</strong><br>
+          Company No. SC874216<br>
+          Glasgow, Scotland
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        <span>
+          © <span id="year"></span> SAXO APP LTD. All rights reserved.
+        </span>
+
+        <span>
+          Software Development · Scotland
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", event => {
+
+        const targetId = link.getAttribute("href");
+
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+
+      });
+    });
+  </script>
+
+</body>
+</html>
